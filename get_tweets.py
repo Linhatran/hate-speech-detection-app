@@ -1,7 +1,7 @@
 import tweepy
 import time
 import pandas as pd
-import config
+from . import config
 
 pd.set_option('display.max_colwidth', 1000)
 
@@ -20,10 +20,10 @@ def get_related_tweets(text_query):
     # list to store tweets
     tweets_list = []
     count = 50
+
     try:
         # pulling individual tweets from query
-        for tweet in api.search(q=text_query, count=count):
-            print(tweet.text)
+        for tweet in api.search_tweets(q=text_query, count=count):
             # adding to list that contains all tweets
             tweets_list.append({'created_at': tweet.created_at,
                                'tweet_id': tweet.id, 'tweet_text': tweet.text})

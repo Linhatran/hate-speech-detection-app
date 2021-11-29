@@ -12,7 +12,7 @@ def requestResults(name):
     # get prediction
     tweets['prediction'] = pipeline.predict(tweets['tweet_text'])
     # get the value counts of different labels predicted
-    data = str(tweets.predictions.value_counts()) + '\n\n'
+    data = str(tweets.prediction.value_counts()) + '\n\n'
     return data + str(tweets)
 
 # start Flask
